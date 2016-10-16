@@ -88,8 +88,11 @@ while n != 0:
 
 	max_val = FindMax(cost, perf, adjancy, n)
 
-	time = math.log(float(p) / float(max_val * e)) / float(max_val)
-	time = int(round(time) + 0.1)
+	if max_val * e >= p:
+		time = 0
+	else:
+		time = math.log(float(p) / float(max_val * e)) / float(max_val)
+		time = int(math.ceil(time) + 0.1)
 
 	print time
 
